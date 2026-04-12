@@ -9,7 +9,7 @@ Midas Core is a backend financial transaction processing system developed as par
 
 The project simulates a real-world banking backend where financial transactions are received through Kafka, validated against account data, and persisted into a database using Spring Boot and JPA.
 
-Features
+Features are:
 
 - Kafka-based transaction listener
 - Transaction validation logic

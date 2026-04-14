@@ -1,61 +1,74 @@
-# Midas
-Project repo for the JPMC Advanced Software Engineering Forage program
+# Midas Core
 
-Midas Core – JPMC Forage Backend Simulation
+Backend Financial Transaction Processing System – JPMorgan Chase Forage Simulation
 
-Overview
+## Overview
 
-Midas Core is a backend financial transaction processing system developed as part of the JPMorgan Chase Forage virtual experience program.
+Midas Core is a backend financial transaction processing system built as part of the JPMorgan Chase Advanced Software Engineering Virtual Experience Program on Forage.
 
-The project simulates a real-world banking backend where financial transactions are received through Kafka, validated against account data, and persisted into a database using Spring Boot and JPA.
+The project simulates an enterprise-level banking backend where transaction events are consumed through Apache Kafka, validated against account data, and persisted into an in-memory database using Spring Boot and JPA.
 
-Features are:
+It demonstrates how modern financial systems process transactions securely through event-driven architecture.
 
-- Kafka-based transaction listener
-- Transaction validation logic
-- H2 in-memory database integration
-- Sender and recipient balance updates
-- Transaction persistence using JPA entities
-- Automated test-driven development using Maven
+## Key Features
 
-Technologies Used
+* Kafka-based transaction event listener
+* Real-time transaction validation
+* Sender and recipient account verification
+* Balance update logic for both accounts
+* Transaction persistence using JPA entities
+* H2 in-memory database integration
+* Maven-based test execution
 
-- Java 17
-- Spring Boot
-- Apache Kafka
-- Spring Data JPA
-- H2 Database
-- Maven
+## Technology Stack
 
-Project Workflow
+* Java 17
+* Spring Boot
+* Apache Kafka
+* Spring Data JPA
+* H2 Database
+* Maven
 
-1. Incoming transaction messages are received through Kafka.
-2. Transactions are deserialized into Java objects.
-3. Sender and recipient accounts are validated.
-4. Valid transactions update balances.
-5. Transaction records are stored in the database.
+## System Workflow
 
-Validation Rules
+1. Transaction messages are received through Kafka topics.
+2. Incoming payloads are deserialized into Java transaction objects.
+3. Sender and recipient accounts are validated from the database.
+4. Sender balance is checked before processing.
+5. Valid transactions update sender and recipient balances.
+6. Transaction records are stored in the database.
 
-A transaction is accepted only if:
+## Transaction Validation Rules
 
-- Sender exists
-- Recipient exists
-- Sender has sufficient balance
+A transaction is processed only when:
 
-Invalid transactions are discarded without database changes.
+* Sender account exists
+* Recipient account exists
+* Sender has sufficient balance
 
-Project Structure
+If validation fails, the transaction is rejected and no database changes are made.
 
-- "component" → Kafka listener and database logic
-- "entity" → User and transaction database entities
-- "repository" → JPA repositories
-- "foundation" → Transaction model classes
+## Project Structure
 
-Learning Outcome
+* `component` → Kafka listener, processing logic, transaction service
+* `entity` → User entity and transaction entity definitions
+* `repository` → Spring Data JPA repositories
+* `foundation` → Core transaction model classes
 
-This project demonstrates event-driven backend architecture, message queue integration, transactional validation, and database persistence used in enterprise financial systems.
+## Learning Outcomes
 
-Program
+This project demonstrates practical backend engineering concepts including:
 
-Developed as part of JPMorgan Chase Software Engineering Virtual Experience on Forage.
+* Event-driven system design
+* Message queue integration
+* Transaction validation
+* Database persistence
+* Backend service architecture used in financial platforms
+
+## Program Context
+
+Developed as part of the JPMorgan Chase Advanced Software Engineering Virtual Experience Program on Forage.
+
+## Repository Purpose
+
+This repository represents a simulation of enterprise backend transaction handling and showcases backend development practices relevant to financial software engineering.
